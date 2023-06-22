@@ -51,7 +51,8 @@ class PlayerWithControls extends StatelessWidget {
             ),
           ),
           if (chewieController.overlay != null) chewieController.overlay!,
-          if (Theme.of(context).platform != TargetPlatform.iOS)
+          if (Theme.of(context).platform != TargetPlatform.iOS &&
+              !chewieController.disableOverlay)
             Consumer<PlayerNotifier>(
               builder: (
                 BuildContext context,

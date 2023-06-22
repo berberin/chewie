@@ -246,6 +246,7 @@ class ChewieState extends State<Chewie> {
 class ChewieController extends ChangeNotifier {
   ChewieController({
     required this.videoPlayerController,
+    this.disableOverlay = false,
     this.optionsTranslation,
     this.aspectRatio,
     this.autoInitialize = false,
@@ -294,6 +295,7 @@ class ChewieController extends ChangeNotifier {
 
   ChewieController copyWith({
     VideoPlayerController? videoPlayerController,
+    bool? disableOverlay,
     OptionsTranslation? optionsTranslation,
     double? aspectRatio,
     bool? autoInitialize,
@@ -343,6 +345,7 @@ class ChewieController extends ChangeNotifier {
       draggableProgressBar: draggableProgressBar ?? this.draggableProgressBar,
       videoPlayerController:
           videoPlayerController ?? this.videoPlayerController,
+      disableOverlay: disableOverlay ?? this.disableOverlay,
       optionsTranslation: optionsTranslation ?? this.optionsTranslation,
       aspectRatio: aspectRatio ?? this.aspectRatio,
       autoInitialize: autoInitialize ?? this.autoInitialize,
@@ -395,6 +398,9 @@ class ChewieController extends ChangeNotifier {
   /// If false, the options button in MaterialUI and MaterialDesktopUI
   /// won't be shown.
   final bool showOptions;
+
+  /// If false, overlay black54 won't be show
+  final bool disableOverlay;
 
   /// Pass your translations for the options like:
   /// - PlaybackSpeed
